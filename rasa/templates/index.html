@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='chatbot.js') }}"></script>
+    <title>세바기 워크샵</title>
+</head>
+<body> 
+    <div class="chatbox">
+        <!-- 챗봇 헤더 -->
+        <div class="chatbox-header">
+            <button class="header-button" id="closeChatbox" aria-label="채팅박스 닫기">
+                <i class="fas fa-times"></i>
+            </button>
+            <b>세바기 웍샵</b>
+            <button class="header-button" id="toggleChatboxSize" aria-label="채팅박스 크기 조절">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+
+        <!-- 챗봇 몸통 -->
+        <div class="chatbox-body">
+            <div class="chat-img">
+                <img src="{{ url_for('static', filename='images/bot.jpg') }}" alt="Bot Image">
+            </div>
+            <div id="messages" class="message-container">
+                <div class="message bot-message intr">
+                    <span>안녕하세요! 전 <i>세바기 봇</i> 입니다.<br> 여러분의 훈련을 돕기위해 만들어 졌습니다. 뭐든 물어봐 보실래요? 심심해요 ㅋㅋ</span>
+                </div>
+                <!-- <div class="message bot-message select">
+                    <span>원하는 서비스를 선택 :<br>
+                        <a href="#" class="img_sch">이미지로 검색</a>
+                        <a href="#" class="voice_sch">음성인식 검색</a>
+                        <a href="#" class="naver_sch">네이버 검색</a>
+                        <a href="#" class="google_sch">구글 검색</a>
+                        <a href="#" class="gpt_sch">GPT 검색</a>
+                        <a href="#" class="llama_sch">라마 검색</a>
+                    </span>
+                </div> -->
+            </div>
+            <!-- 로딩 애니메이션 추가 -->
+            <!-- <div class="loading-overlay" id="loadingOverlay">
+                <div class="loading-spinner"></div>
+            </div> -->
+        </div>
+
+        <!-- 채팅 입력 및 음성 인식 버튼 -->
+        <form id="chatForm" class="chatbox-footer" action="#" method="post">
+            <input type="text" id="userInput" placeholder="메시지를 입력하세요..." autocomplete="off">
+            <button type="submit" class="icon-button" aria-label="메시지 전송">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+            <button type="button" id="voiceInputButton" class="icon-button" aria-label="음성 입력">
+                <i class="fas fa-microphone"></i>
+            </button>
+        </form>
+    </div>
+
+    <button class="chat-button" id="chatButton">
+        <img src="{{ url_for('static', filename='images/bot.gif') }}" alt="Chat Button">
+    </button>
+</body>
+</html>
